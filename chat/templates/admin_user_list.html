@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Users List{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <h3 class="mb-3">All Users</h3>
+
+    <div class="list-group">
+        {% for user in users %}
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <span>{{ user.username }}</span>
+                <a href="{% url 'admin_chat_user' user.id %}" class="btn btn-success">
+                    💬 Chat
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
